@@ -157,3 +157,24 @@ export async function DeleteOrder(id: string) {
     return { success: false }; // Handle the error case
   }
 }
+
+export async function GetMonthOrder(month: string) {
+  try {
+    const monthOrders = await prisma.order.findMany({
+      where: {
+        month: month,
+      },
+    });
+
+    revalidatePath("/search");
+
+    if (monthOrders.length === 0) {
+      return []; // Return an empty array if no orders are found
+    }
+
+    return JSON.parse(JSON.stringify(monthOrders)); // Return the orders
+  } catch (error) {
+    console.error("Error fetching orders:", error);
+    return null; // Return null if there was an error
+  }
+}

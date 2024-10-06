@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <ClerkProvider>
-        <body className={`${inter.className} bg-[#1d1e22]`}>
+        <body className={`${inter.className} bg-[#1d1e22]  overflow-y-scroll`}>
           <Header />
           {children}
           <Toaster position="top-center" />

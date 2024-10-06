@@ -9,6 +9,7 @@ export default function Nav() {
     { name: "Home", href: "/" },
 
     { name: "Orders", href: "/orders" },
+    { name: "Month Search", href: "/search" },
   ];
 
   return (
